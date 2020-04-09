@@ -115,8 +115,8 @@ def repack_with_tuple(dictionary) -> dict:
 
 def return_data_by_name(data, query) -> list:
     """
-    This function receive a nested dictionary and matches a given the query to the keys of the dictionary,
-    If there's a match, than that match is returned.
+    This function receive a nested dictionary and matches a given query to the keys of the dictionary,
+    If there's a match, than that match values are returned.
     :param dict data:
     :param str query:
     """
@@ -124,6 +124,8 @@ def return_data_by_name(data, query) -> list:
         if query.lower() in name.lower():
             values = list(values.values())
             return values
+        
+# Custom Exceptions for The Traingulation calculator, Yet the Class APIException can and sha'll be reused.         
 class LocationInfoException(Exception):
     """
     Could not find any locations or missing data about location exception.
@@ -154,7 +156,7 @@ class ElevationException(Exception):
 
 class APIException(Enum):
     """
-    Base Exception class for the API.
+    Base Exception class for APIs.
     """
     Locations = (205, LocationInfoException, 'No Locations was found or data about location is missing')
     Request = (505, APIRequestException, f'Was not able to get Data from the API')
