@@ -9,7 +9,7 @@ class RetryDecorator:
     """
     This class is used to retry requests at an API/Web page.
     Use the main method as a decorator on any request call you wish.
-    ** Some more testing is required **
+    ** Some more testing are required **
     """
     logger = logging.getLogger(__name__)
 
