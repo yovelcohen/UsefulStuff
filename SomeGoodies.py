@@ -124,6 +124,19 @@ def return_data_by_name(data, query) -> list:
         if query.lower() in name.lower():
             values = list(values.values())
             return values
+
+
+def sort_ordered_dict(dictionary):
+    """
+    Takes in a regular dictionary containing nested dictionaries and returns it sorted by the nested dicts values.
+    :return sorted_dict = collections.OrderedDict:
+    """
+    sorted_dict = OrderedDict(
+        sorted([[k, v] for (k, v) in dictionary.items()], key=lambda kv: sum(kv[1].values()), reverse=True)
+    )
+    return sorted_dict        
+      
+        
         
 # Custom Exceptions for The Traingulation calculator, Yet the Class APIException can and sha'll be reused.         
 class LocationInfoException(Exception):
