@@ -8,4 +8,6 @@ class TopicHandler(object):
 
     def publish(self, msg):
         msg = json.dumps(msg)
-        self._channel.publish(msg, routing_key=self._topic_name)
+        self._channel.publish(msg, 
+                              routing_key=self._topic_name
+                             )
