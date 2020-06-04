@@ -50,7 +50,6 @@ class RetryDecorator:
                         delay *= backoff
 
             return retries
-
         return retry_decorator
 
     @classmethod
@@ -58,6 +57,13 @@ class RetryDecorator:
         if logger:
             logger.warning(msg)
         print(msg)
+        
+    def retry_request(exceptions=None, total_retries=3):
+    """
+    :rtype: Requests retry Decorator Object
+    """
+    exceptions = exceptions or Exception
+    return RetryDecorator.main(exceptions, total_retries=total_retries, logger=RetryDecorator.logger)
 
 
 def get_file_path(dir_path, name, template):
